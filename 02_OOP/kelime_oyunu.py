@@ -1,7 +1,7 @@
 import random
 
 def kelime_oyunu():
-    kelime_listesi = ["FENERBAHCE", "SEN", "COK", "YASA"];
+    kelime_listesi = ["FENERBAHCE", "SEN", "COK", "YASA"]
 
     secilen_kelime = random.choice(kelime_listesi)
 
@@ -28,20 +28,20 @@ def kelime_oyunu():
                     bulunacak_kelime [i] = tahmin
                 #Doğru harf girildi şimdi _ işareti doğru harf ile replace edilmeli
 
-            else:
+        else:
                 #kullanıcının haklarından bir hakkını eksilt (-1) ile
-                kalan_hak -= 1
-                print(f"Yanlış harf. Kalan hak: {kalan_hak}")
+            kalan_hak -= 1
+            print(f"Yanlış harf. Kalan hak: {kalan_hak}")
 
                 #AMA DÖNGÜ DEVAM ETTİKÇE KALAN HAK SIFIRLANIYOR NEDEN??
 
-                if '_' not in bulunacak_kelime:
-                    print(" ".join(bulunacak_kelime))
-                    print("Kelşme bulundu")
-                    break
+        if "_" not in bulunacak_kelime:
+            print(" ".join(bulunacak_kelime))
+            print("Kelşme bulundu")
+            break
 
-            if kalan_hak <= 0:
-                print("Kaybettin")
+    if kalan_hak <= 0:
+        print("Kaybettin")
 
 
 kelime_oyunu()
