@@ -8,37 +8,41 @@ def kelime_oyunu():
     kalan_hak = 3
 
 
-    bulunacak_kelime = ("_") * len(secilen_kelime)
+    bulunacak_kelime = ["_"] * len(secilen_kelime)
 
     print("Oyun Başladı")
 
-    while True:
+    while kalan_hak > 0:
         print(" ".join(bulunacak_kelime))
         print(f"Kalan Hak: {kalan_hak}")
 
         tahmin = input("Bir harf girin ").upper()
-        if len(tahmin) > 1:
+        if len(tahmin) != 1 or not tahmin.isalpha():
             print("Bir harf girilebilir")
-        else:
-            if tahmin in secilen_kelime:
-                print("Doğru harf")
+            continue
+
+        if tahmin in secilen_kelime:
+            print("Doğru harf")
+            for i in range(len(secilen_kelime)):
+                if secilen_kelime [i] == tahmin:
+                    bulunacak_kelime [i] = tahmin
                 #Doğru harf girildi şimdi _ işareti doğru harf ile replace edilmeli
 
             else:
                 #kullanıcının haklarından bir hakkını eksilt (-1) ile
-                son_kalan_hak = kalan_hak-1
+                kalan_hak -= 1
+                print(f"Yanlış harf. Kalan hak: {kalan_hak}")
 
                 #AMA DÖNGÜ DEVAM ETTİKÇE KALAN HAK SIFIRLANIYOR NEDEN??
-
-                print(f"Yanlış harf. Kalan hak: {son_kalan_hak}")
 
                 if '_' not in bulunacak_kelime:
                     print(" ".join(bulunacak_kelime))
                     print("Kelşme bulundu")
                     break
-                if kalan_hak < 0:
-                    print("Kaybettin")
-                    break
+
+            if kalan_hak <= 0:
+                print("Kaybettin")
+
 
 kelime_oyunu()
 
