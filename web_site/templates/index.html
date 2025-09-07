@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Düveroğlu Restoran</title>
+    <!-- CSS dosyamız -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- ✅ Navbar -->
+    <header class="navbar">
+        <div class="logo">Düveroğlu</div>
+        <nav>
+            <a href="/">Ana Sayfa</a>
+            <a href="/menu">Menü</a>
+            <a href="/about">Hakkımızda</a>
+            <a href="/contact">İletişim</a>
+        </nav>
+    </header>
+
+    <!-- ✅ Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Gerçek Kebap Lezzeti</h1>
+            <p>1963'ten beri Ankaralıların tercihi</p>
+            <a href="/menu" class="btn">Menümüze Göz At</a>
+        </div>
+    </section>
+</body>
+</html>
+
+
