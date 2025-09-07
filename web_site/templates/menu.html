@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!-- 📂 web_site/templates/menu.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Düveroğlu Menü</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Düveroğlu Restoran</h1>
+        <nav>
+            <a href="/">Ana Sayfa</a>
+            <a href="/menu">Menü</a>
+            <a href="/contact">İletişim</a>
+        </nav>
+    </header>
+
+    <section class="menu">
+        <h2>Menümüz</h2>
+        <ul>
+            <li>Adana Kebap - 250₺</li>
+            <li>Lahmacun - 100₺</li>
+            <li>Beyti Sarma - 280₺</li>
+            <li>Künefe - 120₺</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Düveroğlu Restoran | Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+</html>
