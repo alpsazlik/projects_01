@@ -1,5 +1,12 @@
 urunler = []
 
+# ##### urunler listesi uzunluğu - değerli olamaz, yani stokta en düşük değer 0 olmalıdır bu da stokta ürün yok anlamına gelir.
+    ####INDEX hatasını bundan dolayı alıyorsun
+
+    ## URUN LISTELEME DE NEDEN + 1 koyma ihtiyacı hissettin? (print(f"{i}. {u['ad']} - Fiyat: {u['fiyat']} TL - Stok: {u['stok']}")
+#) bu satıra?
+
+
 
 def urun_ekle():
     ad = input("Ürün adı: ")
@@ -14,19 +21,20 @@ def urun_ekle():
 
 
 def urunleri_listele():
-    if len(urunler) < 0:
+
+    if len(urunler) <= 0:
         print("Hiç ürün yok")
         return
-    for i in range(len(urunler) + 1):
+    for i in range(len(urunler)):
         u = urunler[i]
-        print(f"{i+1}. {u['ad']} - Fiyat: {u['fiyat']} TL - Stok: {u['stok']}")
+        print(f"{i}. {u['ad']} - Fiyat: {u['fiyat']} TL - Stok: {u['stok']}")
 
 
 def urun_ara():
     arama = input("Aramak istediğiniz ürün adı: ")
     bulundu = False
     for u in urunler:
-        if u["isim"] == arama.lower():
+        if u["ad"] == arama.lower(): ## Burada listede ad olarak key değeri vermişsin ama isim arıyorsun?
             print(f"Bulundu: {u['ad']} - {u['fiyat']} TL - Stok: {u['stok']}")
             bulundu = True
     if bulundu == False:
@@ -40,8 +48,8 @@ def stok_guncelle():
         print("Geçersiz seçim")
         return
     yeni_stok = input("Yeni stok değeri: ")
-    urunler[secim]["stoklar"] = yeni_stok
-    print("Stok güncellendş")
+    urunler[secim]["stoklar"] = yeni_stok ## listeye eklememişsin yeni değeri?
+    print("Stok güncellendi")
 
 
 def urun_sil():
@@ -64,7 +72,7 @@ def toplam_deger():
         toplam += u["fiyat"] * u["stok"]
     print("Stoktaki ürünlerin toplam değeri: " + toplam + " TL")
 
-
+## 6 numaralı seçim nerede?
 def menu():
     while True:
         print("\n--- MARKET STOK TAKİP SİSTEMİ ---")
@@ -77,7 +85,7 @@ def menu():
         print("7. Çıkış")
 
         secim = input("Seçiminiz: ")
-
+        ## burada 6 yok?
         if secim == "1":
             urun_ekle()
         elif secim == "2":
