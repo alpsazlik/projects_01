@@ -7,11 +7,10 @@ urunler = []
 #) bu satıra?
 
 
-
 def urun_ekle():
     ad = input("Ürün adı: ")
     fiyat = int(input("Ürün fiyatı: "))
-    stok = input("Stok adedi: ")
+    stok = int(input("Stok adedi: "))
 
     if ad == "" or fiyat == "":
         print("Hata: Boş değer girilemez!")
@@ -34,7 +33,7 @@ def urun_ara():
     arama = input("Aramak istediğiniz ürün adı: ")
     bulundu = False
     for u in urunler:
-        if u["ad"] == arama.lower(): ## Burada listede ad olarak key değeri vermişsin ama isim arıyorsun?
+        if u["ad"].lower() == arama.lower(): ## Burada listede ad olarak key değeri vermişsin ama isim arıyorsun?
             print(f"Bulundu: {u['ad']} - {u['fiyat']} TL - Stok: {u['stok']}")
             bulundu = True
     if bulundu == False:
@@ -44,11 +43,11 @@ def urun_ara():
 def stok_guncelle():
     urunleri_listele()
     secim = int(input("Stok güncellemek istediğiniz ürün numarasını girin: "))
-    if secim > len(urunler):
+    if secim >= len(urunler):
         print("Geçersiz seçim")
         return
-    yeni_stok = input("Yeni stok değeri: ")
-    urunler[secim]["stoklar"] = yeni_stok ## listeye eklememişsin yeni değeri?
+    yeni_stok = int(input("Yeni stok değeri: "))
+    urunler[secim]["stok"] = yeni_stok ## listeye eklememişsin yeni değeri?
     print("Stok güncellendi")
 
 
@@ -62,7 +61,7 @@ def urun_sil():
     if secim >= len(urunler):
         print("Geçersiz seçim")
     else:
-        silinen = urunler.pop(secim + 1)
+        silinen = urunler.pop(secim)
         print(f"{silinen['ad']} silindi.")
 
 
@@ -70,9 +69,13 @@ def toplam_deger():
     toplam = 0
     for u in urunler:
         toplam += u["fiyat"] * u["stok"]
-    print("Stoktaki ürünlerin toplam değeri: " + toplam + " TL")
+    print("Stoktaki ürünlerin toplam değeri: " + str(toplam) + " TL")
 
 ## 6 numaralı seçim nerede?
+def urun_hesapla():
+    toplam_deger()
+
+
 def menu():
     while True:
         print("\n--- MARKET STOK TAKİP SİSTEMİ ---")
@@ -96,7 +99,9 @@ def menu():
             stok_guncelle()
         elif secim == "5":
             urun_sil()
-        elif secim == 7:
+        elif secim == "6":
+            urun_hesapla()
+        elif secim == "7":
             print("Çıkış yapılıyor")
             break
         else:
@@ -104,4 +109,3 @@ def menu():
 
 
 menu()
-
