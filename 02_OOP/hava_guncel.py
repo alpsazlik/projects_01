@@ -1,4 +1,4 @@
-iimport requests
+import requests
 from colorama import Fore, Style, init
 import time
 from datetime import datetime, timedelta
@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 API_KEY = "9f4102bf15bced5c432ecc1df8481484"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
 TAHMIN_URL = "http://api.openweathermap.org/data/2.5/forecast?"
+
 
 def hava_durumu_sorgula(sehir):
     try:
@@ -70,8 +71,10 @@ def hava_durumu_sorgula(sehir):
         print(f"{Fore.RED}Hata oluştu: {e}")
         return None
 
+
 def renkli_cizgi():
     print(f"{Fore.CYAN}{'═' * 40}")
+
 
 def renkli_hava_durumu_goster(bilgiler):
     renkli_cizgi()
@@ -93,6 +96,7 @@ def renkli_hava_durumu_goster(bilgiler):
     print(f"{Fore.WHITE}Rüzgar:   {Fore.WHITE}{bilgiler['ruzgar']} m/s")
     print(f"{Fore.WHITE}Basınç:   {Fore.WHITE}{bilgiler['basinc']} hPa")
     renkli_cizgi()
+
 
 def sohbet_botu():
     print(f"{Fore.GREEN}Merhaba ben hava durumu botuyum.")
@@ -132,12 +136,13 @@ def sohbet_botu():
                 print(f"{Fore.YELLOW}️  Güneşli güzel bir gün keyfini çıkar.")
 
             if hava_bilgisi["haftalik_ortalama"] > hava_bilgisi["sicaklik"]:
-                print(f"{Fore.YELLOW}Önümüzdeki günlerde havalar ısınacak!")
+                print(f"{Fore.YELLOW}Önümüzdeki günlerde havalar ısınacak")
             elif hava_bilgisi["haftalik_ortalama"] < hava_bilgisi["sicaklik"]:
-                print(f"{Fore.BLUE}Önümüzdeki günlerde havalar serinleyecek!")
+                print(f"{Fore.BLUE}Önümüzdeki günlerde havalar serinleyecek")
         else:
             print(f"{Fore.RED}Üzgünüm, '{girdi}' şehri bulunamadı veya bir hata oluştu.")
             print(f"{Fore.YELLOW}Lütfen şehir isminin doğru yazıldığından emin ol.")
             print(f"{Fore.YELLOW}İngilizce ismini yazmayı dene (ör: Istanbul, Ankara)")
+
 
 sohbet_botu()
