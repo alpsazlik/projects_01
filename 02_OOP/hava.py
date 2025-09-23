@@ -1,4 +1,4 @@
-iimport requests
+import requests
 from colorama import Fore, Style, init
 import time
 from datetime import datetime, timedelta
