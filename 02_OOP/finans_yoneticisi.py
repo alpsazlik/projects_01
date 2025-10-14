@@ -96,7 +96,7 @@ class FinansYoneticisi:
                 finans.giderleri_listele()
 
             elif secim == "6":
-                print("👋 Çıkış yapılıyor...")
+                print("Çıkış yapılıyor...")
                 break
 
             else:
