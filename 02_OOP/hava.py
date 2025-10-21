@@ -123,7 +123,7 @@ def sohbet_botu():
             renkli_hava_durumu_goster(hava_bilgisi)
 
             if "yağmur" in hava_bilgisi["aciklama"].lower():
-                print(f"{Fore.BLUE}  Yanına şemsiye almayı unutma")
+                print(f"{Fore.BLUE}  Yanına şemsiye almayı unutma.")
             elif hava_bilgisi["sicaklik"] > 30:
                 print(f"{Fore.RED} Çok sıcak! Bol su iç ve gölgede kal.")
             elif hava_bilgisi["sicaklik"] < 5:
