@@ -101,7 +101,7 @@ def sohbet_botu():
     time.sleep(1)
 
     while True:
-        print(f"\n{Fore.YELLOW}Bir şehir ismi yazabilirsin ")
+        print(f"\n{Fore.YELLOW}Bir şehir ismi yazabilirsin. ")
         print(f"{Fore.YELLOW}Çıkmak için 'quit' yazabilirsin.")
 
         girdi = input(f"{Fore.WHITE}Sen: ").strip()
